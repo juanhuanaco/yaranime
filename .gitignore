@@ -13,6 +13,7 @@
 /captures
 .externalNativeBuild
 .cxx
+.idea/
 local.properties
 =======
 .gradle
