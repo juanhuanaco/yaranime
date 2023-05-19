@@ -3,17 +3,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.MusicFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="REPRODUCIENDO AHORA:"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:textColor="#777a7b"/>
+        <TextView
+            android:id="@+id/cancion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nombre de la canción"
+            android:gravity="center"
+            android:textColor="#d0d5db"/>
+        <ImageView
+            android:id="@+id/album_portada"
+            android:layout_width="match_parent"
+            android:layout_height="410sp"
+            android:layout_margin="20sp"
+            android:src="@drawable/freaks"/>
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Música"
-        android:textAlignment="center"
-        android:textSize="36sp"
-        android:textStyle="bold"
-
-        />
-
+        android:orientation="vertical"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="100dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/artista"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Artista"
+            android:textColor="#d0d5db"/>
+        <TextView
+            android:id="@+id/album"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Album"
+            android:textColor="#777a7b"/>
+    </LinearLayout>
+    <com.google.android.exoplayer2.ui.PlayerControlView
+        android:id="@+id/playerControl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:show_timeout="0"
+        app:hide_on_touch="false"/>
 </FrameLayout>
