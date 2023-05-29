@@ -6,10 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.widget.ImageView
+import androidx.core.content.ContentProviderCompat.requireContext
 import com.bumptech.glide.Glide
-import com.bumptech.glide.annotation.GlideExtension
-import com.bumptech.glide.annotation.GlideModule
-import com.bumptech.glide.annotation.GlideType
+import com.google.firebase.FirebaseApp
+import com.google.firebase.FirebaseOptions
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,10 +19,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val options = FirebaseOptions.Builder()
+            .setApiKey("AIzaSyDlap2eVFZwpt0dzkoVpwVd5If5VeVnw-g")
+            .setApplicationId("1:494057504345:android:d3f3d3cb77509bc396fb48")
+            .setDatabaseUrl("https://yaranime-eventos-default-rtdb.firebaseio.com/")
+            .build()
+        FirebaseApp.initializeApp(applicationContext, options, "events-database")
+
         anime = findViewById(R.id.anime)
-        var url = "https://www.icegif.com/wp-content/uploads/icegif-2013.gif"
-        Uri.parse(url)
-        Glide.with(this).load(url).into(anime)
+        Glide.with(this).load("https://www.icegif.com/wp-content/uploads/icegif-2013.gif").into(anime)
         val timer = object : CountDownTimer(5000, 1000){
             override fun onTick(millisUntilFinished: Long) {
 

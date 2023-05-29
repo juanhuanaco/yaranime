@@ -1,17 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.ConfigFragment">
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:id="@+id/configLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ajustes de Usuario"
-        android:textSize="36sp"
-        android:textAlignment="center"
-        android:textStyle="bold"/>
+        android:background="@color/blue"
+        android:padding="16dp"
+        android:gravity="center">
 
-</FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AJUSTES"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceBodyLarge"
+        android:text="Tema:" />
+
+    <Spinner
+        android:id="@+id/themeSpinner"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/theme_options"
+        android:minHeight="48dp"
+        android:spinnerMode="dropdown" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/versionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Versión" />
+
+    </LinearLayout>
+
+</LinearLayout>
+
