@@ -2,4 +2,9 @@
     <string name="app_name">Yaranime</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="theme_options">
+        <item>Tema Azul</item>
+        <item>Tema Rojo</item>
+        <item>Tema Verde</item>
+    </string-array>
 </resources>

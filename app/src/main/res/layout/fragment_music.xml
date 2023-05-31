@@ -3,17 +3,80 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.MusicFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Música"
-        android:textAlignment="center"
-        android:textSize="36sp"
-        android:textStyle="bold"
-
-        />
-
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="REPRODUCIENDO AHORA:"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:textColor="#777a7b"/>
+        <TextView
+            android:id="@+id/cancion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nombre de la canción"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:textColor="#d0d5db"/>
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="90dp"
+        android:orientation="vertical">
+        <androidx.cardview.widget.CardView
+            android:elevation="0dp"
+            android:layout_gravity="center"
+            app:cardCornerRadius="24dp"
+            android:layout_margin="20dp"
+            android:layout_width="380dp"
+            android:layout_height="380dp">
+            <ImageView
+                tools:ignore="ContentDescription"
+                android:id="@+id/album_portada"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/yellow" />
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="100dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/artista"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Artista"
+            android:textSize="16sp"
+            android:textColor="#d0d5db"/>
+        <TextView
+            android:id="@+id/album"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Album"
+            android:textSize="16sp"
+            android:textColor="#777a7b"/>
+    </LinearLayout>
+    <com.google.android.exoplayer2.ui.PlayerControlView
+        android:id="@+id/playerControl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:show_timeout="0"
+        app:hide_on_touch="false"/>
 </FrameLayout>

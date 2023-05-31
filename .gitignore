@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 *.iml
 .gradle
 /local.properties
@@ -15,7 +15,7 @@
 .cxx
 .idea/
 local.properties
-=======
+
 .gradle
 **/build/
 !src/**/build/
@@ -37,4 +37,3 @@ gradle-app.setting
 .project
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
->>>>>>> 9287f72b53c4127c16d22c4ac11c14a4f18edd77
