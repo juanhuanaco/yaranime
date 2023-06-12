@@ -7,4 +7,10 @@
         <item>Tema Rojo</item>
         <item>Tema Verde</item>
     </string-array>
+    <string-array name="wallpaper_options">
+        <item>Clouds</item>
+        <item>Rainbow</item>
+        <item>Tricolor</item>
+        <item>Purple</item>
+    </string-array>
 </resources>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/frameLayoutBackground"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.MusicFragment">
     <LinearLayout
@@ -16,27 +16,25 @@
             android:text="REPRODUCIENDO AHORA:"
             android:textSize="16sp"
             android:gravity="center"
-            android:layout_marginTop="20dp"
-            android:textColor="#777a7b"/>
+            android:layout_marginTop="20dp" />
         <TextView
             android:id="@+id/cancion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nombre de la canción"
             android:textSize="16sp"
-            android:gravity="center"
-            android:textColor="#d0d5db"/>
+            android:gravity="center" />
     </LinearLayout>
     <LinearLayout
-        android:gravity="center"
+        android:layout_gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="90dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
         android:orientation="vertical">
         <androidx.cardview.widget.CardView
             android:elevation="0dp"
             android:layout_gravity="center"
-            app:cardCornerRadius="24dp"
+            app:cardCornerRadius="20dp"
             android:layout_margin="20dp"
             android:layout_width="380dp"
             android:layout_height="380dp">
@@ -45,7 +43,7 @@
                 android:id="@+id/album_portada"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/yellow" />
+                android:src="@drawable/default_music" />
         </androidx.cardview.widget.CardView>
     </LinearLayout>
     <LinearLayout
@@ -53,7 +51,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="bottom"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="120dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:gravity="center">
@@ -63,20 +61,35 @@
             android:layout_height="wrap_content"
             android:text="Artista"
             android:textSize="16sp"
-            android:textColor="#d0d5db"/>
+            android:textAlignment="center"/>
         <TextView
             android:id="@+id/album"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Album"
             android:textSize="16sp"
-            android:textColor="#777a7b"/>
+            android:textAlignment="center"/>
     </LinearLayout>
-    <com.google.android.exoplayer2.ui.PlayerControlView
-        android:id="@+id/playerControl"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        app:show_timeout="0"
-        app:hide_on_touch="false"/>
+        android:layout_gravity="bottom" >
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="20dp"
+            android:layout_margin="20dp">
+
+            <com.google.android.exoplayer2.ui.PlayerControlView
+                android:id="@+id/playerControl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:show_timeout="0"
+                app:hide_on_touch="false"
+                app:played_ad_marker_color="@color/design_default_color_primary"
+                app:scrubber_color="@color/design_default_color_primary"
+                app:show_shuffle_button="false"/>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
 </FrameLayout>

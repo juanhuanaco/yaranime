@@ -1,5 +1,6 @@
 package com.cibertec.yaranime.fragments
 
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,8 +10,10 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.Spinner
+import android.widget.Toast
 import com.cibertec.yaranime.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -28,6 +31,8 @@ class ConfigFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private lateinit var linearLayout: LinearLayout
+    private lateinit var backgrounPrincipal: LinearLayout
+    /*private lateinit var frameLayout: FrameLayout*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,8 +53,11 @@ class ConfigFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         linearLayout = view.findViewById(R.id.configLinearLayout)
+        backgrounPrincipal = view.findViewById(R.id.backgroundPrincipal)
+        /*frameLayout = view.findViewById(R.id.frameLayoutBackground)*/
 
         val themeSpinner: Spinner = view.findViewById(R.id.themeSpinner)
+        val wallpaperSpinner: Spinner = view.findViewById(R.id.wallpaperSpinner)
         val versionButton: Button = view.findViewById(R.id.versionButton)
 
         try {
@@ -84,6 +92,33 @@ class ConfigFragment : Fragment() {
             }
         }
 
+        val wallpaperOptions = resources.getStringArray(R.array.wallpaper_options)
+        val adapter2 = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, wallpaperOptions)
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        wallpaperSpinner.adapter = adapter2
+
+        wallpaperSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val selectedWallpaper = parent?.getItemAtPosition(position).toString()
+                when (selectedWallpaper) {
+                    "Clouds" -> backgrounPrincipal.setBackgroundResource(R.drawable.clouds)
+                    "Rainbow" -> backgrounPrincipal.setBackgroundResource(R.drawable.rainbow)
+                    "Tricolor" -> backgrounPrincipal.setBackgroundResource(R.drawable.tricolor)
+                    "Purple" -> backgrounPrincipal.setBackgroundResource(R.drawable.purple)
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                TODO("Not yet implemented")
+            }
+        }
+
+        /*wallpaper.setOnClickListener {
+            Toast.makeText(requireContext(), "Hello World", Toast.LENGTH_LONG).show()
+            val intent = Intent(requireContext(), MusicFragment::class.java)
+            startActivity(intent)
+            backgrounPrincipal.setBackgroundResource(R.drawable.yellow)
+        }*/
 
 
     }
