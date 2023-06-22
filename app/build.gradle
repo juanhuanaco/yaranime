@@ -55,4 +55,5 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.15.1'
     // VOLLEY (http library)
     implementation 'com.android.volley:volley:1.2.1'
+    implementation 'androidx.media:media:1.6.0'
 }

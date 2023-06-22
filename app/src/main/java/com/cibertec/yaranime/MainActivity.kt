@@ -24,7 +24,10 @@ class MainActivity : AppCompatActivity() {
             .setApplicationId("1:494057504345:android:d3f3d3cb77509bc396fb48")
             .setDatabaseUrl("https://yaranime-eventos-default-rtdb.firebaseio.com/")
             .build()
-        FirebaseApp.initializeApp(applicationContext, options, "events-database")
+
+        try {
+            FirebaseApp.initializeApp(applicationContext, options, "events-database")
+        } catch (e:Exception){}
 
         anime = findViewById(R.id.anime)
         Glide.with(this).load("https://www.icegif.com/wp-content/uploads/icegif-2013.gif").into(anime)

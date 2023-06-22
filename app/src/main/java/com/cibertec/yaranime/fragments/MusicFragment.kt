@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.cibertec.yaranime.R
-import com.cibertec.yaranime.models.Cancion
+import com.cibertec.yaranime.models.Song
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.MediaMetadata
@@ -73,16 +73,16 @@ class MusicFragment : Fragment(), Player.Listener {
     private fun getCanciones() {
         myRef.get().addOnSuccessListener {
             for(data in it.children){
-                var auxSong = data.getValue(Cancion::class.java)
+                var auxSong = data.getValue(Song::class.java)
                 if(auxSong!=null){
                     var metadata = MediaMetadata.Builder()
                         .setTitle(auxSong.title)
                         .setArtist(auxSong.artist)
                         .setAlbumTitle(auxSong.album)
-                        .setArtworkUri(Uri.parse(auxSong.img))
+                        .setArtworkUri(Uri.parse(auxSong.albumArtUri))
                         .build()
                     var item:MediaItem = MediaItem.Builder()
-                        .setUri(auxSong.song_url)
+                        .setUri(auxSong.songUri)
                         .setMediaMetadata(metadata)
                         .build()
                     cancionItems.add(item)
