@@ -1,9 +1,9 @@
 package com.cibertec.yaranime.models
 
-class Cancion {
+class Song {
     lateinit var title: String
     lateinit var artist: String
     lateinit var album: String
-    lateinit var img: String
-    lateinit var song_url: String
+    lateinit var songUri: String
+    var albumArtUri : String? = null
 }

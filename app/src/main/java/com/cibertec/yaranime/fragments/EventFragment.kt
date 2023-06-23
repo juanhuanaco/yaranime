@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,10 +17,9 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.cibertec.yaranime.R
 import com.cibertec.yaranime.adapters.EventAdapter
-import com.cibertec.yaranime.models.Evento
+import com.cibertec.yaranime.models.Event
 import com.google.android.gms.location.LocationServices
 import com.google.firebase.FirebaseApp
-import com.google.firebase.FirebaseOptions
 import com.google.firebase.database.FirebaseDatabase
 
 // TODO: Rename parameter arguments, choose names that match
@@ -36,7 +34,7 @@ class EventFragment : Fragment() {
     private lateinit var btnFilterLocation : Button
     private var areEventsFiltered : Boolean = false
     private lateinit var recyclerView:RecyclerView
-    private lateinit var eventos:List<Evento>
+    private lateinit var events:List<Event>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,15 +68,15 @@ class EventFragment : Fragment() {
         val secondDatabase = FirebaseDatabase.getInstance(FirebaseApp.getInstance("events-database"))
         val ref = secondDatabase.getReference("eventos")
         ref.get().addOnSuccessListener {
-            eventos = it.children.map { it.getValue(Evento::class.java)!! }
-            recyclerView.adapter = EventAdapter(eventos)
+            events = it.children.map { it.getValue(Event::class.java)!! }
+            recyclerView.adapter = EventAdapter(events)
         }.addOnFailureListener{
             Toast.makeText(requireContext(), "Upss... Hubo un problema al obtener los eventos.", Toast.LENGTH_LONG).show()
         }
     }
 
 
-    fun updateRecyclerViewAdapter(data: List<Evento>){
+    fun updateRecyclerViewAdapter(data: List<Event>){
         recyclerView.adapter = EventAdapter(data)
     }
 
@@ -94,7 +92,7 @@ class EventFragment : Fragment() {
     }
 
     fun deleteFiltersForEvents(){
-        updateRecyclerViewAdapter(eventos)
+        updateRecyclerViewAdapter(events)
     }
 
     fun filterEventsByLocation(){
@@ -108,7 +106,7 @@ class EventFragment : Fragment() {
                     val request = JsonObjectRequest( Request.Method.GET, url, null,
                         { response ->
                             val state = response.getJSONObject("address")
-                            updateRecyclerViewAdapter(eventos.filter { it.city.contentEquals(state.getString("state")) })
+                            updateRecyclerViewAdapter(events.filter { it.city.contentEquals(state.getString("state")) })
                             Toast.makeText(requireContext(), "Tu ciudad es ${state.getString("state")}", Toast.LENGTH_LONG).show()
                         },
                         {
