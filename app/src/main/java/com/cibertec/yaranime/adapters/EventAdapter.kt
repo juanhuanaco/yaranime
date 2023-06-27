@@ -1,22 +1,19 @@
 package com.cibertec.yaranime.adapters
 
-import android.app.Application
 import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.cibertec.yaranime.R
-import com.cibertec.yaranime.models.Evento
+import com.cibertec.yaranime.models.Event
 import com.google.android.material.button.MaterialButton
-import kotlinx.coroutines.currentCoroutineContext
 
 
-class EventAdapter(private val items: List<Evento>) : RecyclerView.Adapter<EventAdapter.ViewHolder>() {
+class EventAdapter(private val items: List<Event>) : RecyclerView.Adapter<EventAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var tituloEvento: TextView
@@ -36,7 +33,7 @@ class EventAdapter(private val items: List<Evento>) : RecyclerView.Adapter<Event
             }
         }
 
-        fun bindData(data: Evento) {
+        fun bindData(data: Event) {
             tituloEvento.text = data.title
             direccionEvento.text = data.address
             fechaEvento.text = data.date

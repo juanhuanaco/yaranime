@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "842109583520",
-    "firebase_url": "https://yaranime-music-player-default-rtdb.firebaseio.com",
-    "project_id": "yaranime-music-player",
-    "storage_bucket": "yaranime-music-player.appspot.com"
+    "project_number": "819799749461",
+    "firebase_url": "https://yaranimestreaming2-default-rtdb.firebaseio.com",
+    "project_id": "yaranimestreaming2",
+    "storage_bucket": "yaranimestreaming2.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:842109583520:android:095d61e2fd270256e549c5",
+        "mobilesdk_app_id": "1:819799749461:android:82899d01bcaaad107cf5dc",
         "android_client_info": {
           "package_name": "com.cibertec.yaranime"
         }
       },
       "oauth_client": [
         {
-          "client_id": "842109583520-2l0gtm4sg6ueig0708l5mqjctmn9c22v.apps.googleusercontent.com",
+          "client_id": "819799749461-vfvssovs07a66hu09pd4nghueh72hmj8.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA-PnJCZx8f2BYbD24b9U5EcjZyv6vfKCs"
+          "current_key": "AIzaSyBwNsgkH1GkFPmrGrQPYbYS0cmMInai0Tg"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "842109583520-2l0gtm4sg6ueig0708l5mqjctmn9c22v.apps.googleusercontent.com",
+              "client_id": "819799749461-vfvssovs07a66hu09pd4nghueh72hmj8.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

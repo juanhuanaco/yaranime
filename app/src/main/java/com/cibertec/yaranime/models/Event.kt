@@ -1,6 +1,6 @@
 package com.cibertec.yaranime.models
 
-class Evento {
+class Event {
     lateinit var title: String
     lateinit var date: String
     lateinit var address: String
